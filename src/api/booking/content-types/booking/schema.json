@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "last_name": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "middle_name": {
+      "type": "string",
+      "required": false
+    },
+    "timein": {
+      "type": "datetime"
+    },
+    "timeout": {
+      "type": "datetime"
+    },
+    "contact_number": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "email"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::room.room",
+      "inversedBy": "booking"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "last_name"
+    }
+  }
+}
